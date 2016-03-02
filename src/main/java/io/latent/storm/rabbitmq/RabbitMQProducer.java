@@ -59,6 +59,8 @@ public class RabbitMQProducer implements Serializable {
                                                                 .expiration(message.getExpiration())
                                                                 .build();
       channel.basicPublish(message.getExchangeName(), message.getRoutingKey(), properties, message.getBody());
+      logger.info("Sent message to exchange {} with routingKey of {}", message.getExchangeName(),
+              message.getRoutingKey());
     } catch (AlreadyClosedException ace) {
       logger.error("already closed exception while attempting to send message", ace);
       reset();
