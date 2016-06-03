@@ -74,7 +74,7 @@ public class ProducerConfig implements Serializable
     Map<String, Object> map = new HashMap<String, Object>();
     map.putAll(connectionConfig.asMap());
     addToMap("rabbitmq.exchangeName", map, exchangeName);
-    addToMap("rabbitmq.routingKey", map, routingKey);
+    addToMap("rabbitmq.routingKey", map, routingKey, "");
     addToMap("rabbitmq.contentType", map, contentType);
     addToMap("rabbitmq.contentEncoding", map, contentEncoding);
     addToMap("rabbitmq.persistent", map, persistent);
